@@ -1,0 +1,19 @@
+### GET /api/clubs recupera todos los clubes
+GET http://localhost:3000/api/clubs
+
+### GET /api/clubs/:id recupera un club por su id
+GET http://localhost:3000/api/clubs/1
+
+###POST /api/club/ crea un club
+POST http://localhost:3000/api/clubs/
+Content-Type: application/json
+
+{
+    "name": "Rubius",
+    "birth_date": "1900-04-23",
+    "biography": "El dios del gaming",
+    "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/El_Rubius_en_el_Festival_de_cinema_de_Sitges_2018_%28recorte%29.jpg/500px-El_Rubius_en_el_Festival_de_cinema_de_Sitges_2018_%28recorte%29.jpg"
+}
+
+### DELETE /api/clubs/:id elimina un club por su id
+DELETE http://localhost:3000/api/clubs/7

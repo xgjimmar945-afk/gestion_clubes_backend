@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   return sequelize.define('club', {
     id_club: {
       autoIncrement: true,
@@ -30,6 +30,16 @@ module.exports = function(sequelize, DataTypes) {
         model: 'RAMA',
         key: 'id_rama'
       }
+    },
+    presupuesto_anual: {
+      type: DataTypes.DECIMAL(10, 2),
+      allowNull: true,
+      defaultValue: 0.00
+    },
+    esta_activo: {
+      type: DataTypes.TINYINT(1),
+      allowNull: true,
+      defaultValue: 1
     }
   }, {
     sequelize,

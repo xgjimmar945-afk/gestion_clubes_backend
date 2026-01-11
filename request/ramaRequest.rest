@@ -1,0 +1,2 @@
+### GET /api/ramas recupera todas las ramasd e los clubs
+GET http://localhost:3000/api/ramas

@@ -1,0 +1,5 @@
+### GET /api/socios recupera todos los clubes
+GET http://localhost:3000/api/socios/1
+
+### GET /api/socios/:idClub recupera todos los clubes
+GET http://localhost:3000/api/socios/club/2
