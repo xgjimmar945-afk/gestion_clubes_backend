@@ -23,33 +23,6 @@ class RamaService {
             throw err;
         }
     }
-
-    async createRama(ramaData) {
-        try {
-            const result = await Rama.create(ramaData);
-            return result;
-        } catch (err) {
-            throw err;
-        }
-    }
-
-    async updateRama(id, ramaData) {
-        try {
-            const result = await Rama.update(ramaData, { where: { id: id } });
-            return result;
-        } catch (err) {
-            throw err;
-        }
-    }
-
-    async deleteRama(id) {
-        try {
-            const result = await Rama.destroy({ where: { id: id } });
-            return result;
-        } catch (err) {
-            throw err;
-        }
-    }
 }
 
 module.exports = new RamaService();
