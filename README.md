@@ -13,17 +13,6 @@ Backend API REST para la gestión de clubes de ciencia, desarrollado con Node.js
 
 **GitHub:** [https://github.com/Epsiloon66/gestion_clubes_backend](https://github.com/Epsiloon66/gestion_clubes_backend)
 
-
-## 📦 Configurar la base de datos
-
-Ejecuta el script SQL ubicado en `sql/clubes_ciencia (1).sql` en tu servidor MySQL:
-
-```bash
-mysql -u root -p < sql/clubes_ciencia\ \(1\).sql
-```
-
-O importa el archivo manualmente usando MySQL Workbench u otra herramienta de gestión.
-
 ## ⚙️ Configuración
 
 ### Archivo de Variables de Entorno (config.js)
