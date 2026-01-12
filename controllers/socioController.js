@@ -1,6 +1,6 @@
 // controllers/directorController.js
 const socioService = require('../services/socioService.js');
-const {logMensaje} = require("../utils/logger.js");
+const { logMensaje } = require("../utils/logger.js");
 const Respuesta = require("../utils/respuesta.js");
 
 class SocioController {
@@ -73,6 +73,34 @@ class SocioController {
         ok: false,
         datos: null,
         mensaje: 'Error al recuperar el socio'
+      });
+    }
+  }
+
+  async getSociosByFechaNacimiento(req, res) {
+    try {
+      const { fechaInicio, fechaFin } = req.query;
+      const socios = await socioService.getSociosByFechaNacimiento(fechaInicio, fechaFin);
+
+      if (socios) {
+        return res.status(200).json({
+          ok: true,
+          datos: socios,
+          mensaje: 'Socios recuperados correctamente'
+        });
+      } else {
+        return res.status(404).json({
+          ok: false,
+          datos: null,
+          mensaje: 'Socios no encontrados'
+        });
+      }
+    } catch (err) {
+      console.error('Error en getSociosByFechaNacimiento:', err);
+      return res.status(500).json({
+        ok: false,
+        datos: null,
+        mensaje: 'Error al recuperar socios por fecha'
       });
     }
   }

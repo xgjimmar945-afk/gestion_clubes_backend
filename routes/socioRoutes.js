@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const socioController = require('../controllers/socioController');
 
+router.get('/rango-fecha', socioController.getSociosByFechaNacimiento); // Devuelve socios por rango de fecha
 router.get('/', socioController.getAllSocios); //Devuelve todos los socioes
 router.get('/:id', socioController.getSocioById); //Devuelve un socio por su id
 router.get('/club/:id', socioController.getSocioByIdClub); //Devuelve un socio por su idClub
