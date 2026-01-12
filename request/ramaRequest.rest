@@ -1,2 +1,14 @@
-### GET /api/ramas recupera todas las ramasd e los clubs
+### GET /api/ramas - Recupera todas las ramas de los clubes
 GET http://localhost:3000/api/ramas
+
+###
+
+### GET /api/ramas/:id - Recupera una rama por su ID
+GET http://localhost:3000/api/ramas/1
+
+###
+
+### GET /api/ramas/:id - Recupera otra rama por su ID
+GET http://localhost:3000/api/ramas/2
+
+###

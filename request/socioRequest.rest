@@ -1,5 +1,88 @@
-### GET /api/socios recupera todos los clubes
+### GET /api/socios - Recupera todos los socios
+GET http://localhost:3000/api/socios
+
+###
+
+### GET /api/socios/:id - Recupera un socio por su ID
 GET http://localhost:3000/api/socios/1
 
-### GET /api/socios/:idClub recupera todos los clubes
-GET http://localhost:3000/api/socios/club/2
+###
+
+### GET /api/socios/club/:id - Recupera todos los socios de un club específico
+GET http://localhost:3000/api/socios/club/1
+
+###
+
+### GET /api/socios/rango-fecha - Recupera socios por rango de fecha de nacimiento
+GET http://localhost:3000/api/socios/rango-fecha?fecha_inicio=1990-01-01&fecha_fin=2000-12-31
+
+###
+
+### POST /api/socios - Crea un nuevo socio
+POST http://localhost:3000/api/socios
+Content-Type: application/json
+
+{
+    "nombre": "Juan",
+    "apellido": "Pérez García",
+    "email": "juan.perez@example.com",
+    "id_club": 1,
+    "fecha_nacimiento": "1995-05-15",
+    "altura_metros": 1.75,
+    "ha_pagado_cuota": 1
+}
+
+###
+
+### POST /api/socios - Crea otro socio de ejemplo
+POST http://localhost:3000/api/socios
+Content-Type: application/json
+
+{
+    "nombre": "María",
+    "apellido": "González López",
+    "email": "maria.gonzalez@example.com",
+    "id_club": 1,
+    "fecha_nacimiento": "1998-08-22",
+    "altura_metros": 1.65,
+    "ha_pagado_cuota": 0
+}
+
+###
+
+### POST /api/socios - Crea socio sin club asignado
+POST http://localhost:3000/api/socios
+Content-Type: application/json
+
+{
+    "nombre": "Carlos",
+    "apellido": "Rodríguez Martínez",
+    "email": "carlos.rodriguez@example.com",
+    "id_club": null,
+    "fecha_nacimiento": "2000-03-10",
+    "altura_metros": 1.80,
+    "ha_pagado_cuota": 0
+}
+
+###
+
+### PUT /api/socios/:id - Actualiza un socio existente
+PUT http://localhost:3000/api/socios/1
+Content-Type: application/json
+
+{
+    "nombre": "Juan Carlos",
+    "apellido": "Pérez García",
+    "email": "juan.perez@example.com",
+    "id_club": 2,
+    "fecha_nacimiento": "1995-05-15",
+    "altura_metros": 1.76,
+    "ha_pagado_cuota": 1
+}
+
+###
+
+### DELETE /api/socios/:id - Elimina un socio por su ID
+DELETE http://localhost:3000/api/socios/99
+
+###

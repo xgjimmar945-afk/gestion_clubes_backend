@@ -1,19 +1,67 @@
-### GET /api/clubs recupera todos los clubes
+### GET /api/clubs - Recupera todos los clubes
 GET http://localhost:3000/api/clubs
 
-### GET /api/clubs/:id recupera un club por su id
+###
+
+### GET /api/clubs/:id - Recupera un club por su ID
 GET http://localhost:3000/api/clubs/1
 
-###POST /api/club/ crea un club
-POST http://localhost:3000/api/clubs/
+###
+
+### GET /api/clubs/ramas/:id - Recupera clubes por ID de rama
+GET http://localhost:3000/api/clubs/ramas/1
+
+###
+
+### POST /api/clubs - Crea un nuevo club
+POST http://localhost:3000/api/clubs
 Content-Type: application/json
 
 {
-    "name": "Rubius",
-    "birth_date": "1900-04-23",
-    "biography": "El dios del gaming",
-    "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/El_Rubius_en_el_Festival_de_cinema_de_Sitges_2018_%28recorte%29.jpg/500px-El_Rubius_en_el_Festival_de_cinema_de_Sitges_2018_%28recorte%29.jpg"
+    "nombre": "Club de Robótica",
+    "descripcion": "Club dedicado al desarrollo de robots y automatización",
+    "direccion": "Av. Tecnología 123, Ciudad",
+    "fecha_fundacion": "2024-01-15",
+    "id_rama": 1,
+    "presupuesto_anual": 50000.00,
+    "esta_activo": 1
 }
 
-### DELETE /api/clubs/:id elimina un club por su id
-DELETE http://localhost:3000/api/clubs/7
+###
+
+### POST /api/clubs - Crea otro club de ejemplo
+POST http://localhost:3000/api/clubs
+Content-Type: application/json
+
+{
+    "nombre": "Club de Astronomía",
+    "descripcion": "Observación y estudio de cuerpos celestes",
+    "direccion": "Calle Estrellas 456, Ciudad",
+    "fecha_fundacion": "2023-09-20",
+    "id_rama": 2,
+    "presupuesto_anual": 35000.00,
+    "esta_activo": 1
+}
+
+###
+
+### PUT /api/clubs/:id - Actualiza un club existente
+PUT http://localhost:3000/api/clubs/1
+Content-Type: application/json
+
+{
+    "nombre": "Club de Robótica Avanzada",
+    "descripcion": "Club dedicado al desarrollo de robots y automatización con IA",
+    "direccion": "Av. Tecnología 123, Ciudad",
+    "fecha_fundacion": "2024-01-15",
+    "id_rama": 1,
+    "presupuesto_anual": 75000.00,
+    "esta_activo": 1
+}
+
+###
+
+### DELETE /api/clubs/:id - Elimina un club por su ID
+DELETE http://localhost:3000/api/clubs/99
+
+###
