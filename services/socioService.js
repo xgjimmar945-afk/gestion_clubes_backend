@@ -42,7 +42,11 @@ class SocioService {
                     fecha_nacimiento: {
                         [Op.between]: [fechaInicio, fechaFin]
                     }
-                }
+                },
+                include: [{
+                    model: models.club,
+                    as: 'id_club_CLUB'
+                }]
             });
             return data;
         } catch (err) {

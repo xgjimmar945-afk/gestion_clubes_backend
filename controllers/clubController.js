@@ -4,6 +4,25 @@ const {logMensaje} = require("../utils/logger.js");
 const Respuesta = require("../utils/respuesta.js");
 
 class ClubController {
+
+  async getClubGraph(req, res){
+    try {
+      const clubsData = await clubService.getClubGraph();
+      return res.status(200).json({
+        ok: true,
+        datos: clubsData,
+        mensaje: "Datos de clubes recuperados correctamente",
+      });
+    } catch (err) {
+      logMensaje("Error en getClubGraph:", err);
+      return res.status(500).json({
+        ok: false,
+        datos: null,
+        mensaje: "Error al recuperar datos de clubes",
+      });
+    }
+  }
+
   async getAllClubs(req, res) {
     try {
       const clubes = await clubService.getAllClubs();

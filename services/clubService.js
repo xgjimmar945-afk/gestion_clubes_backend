@@ -5,8 +5,29 @@ const sequelize = require("../config/sequelize.js");
 const models = initModels(sequelize);
 // Recuperar el modelo director
 const Club = models.club;
+const Socio = models.socio;
 
 class ClubService {
+
+  async getClubGraph() {
+    const result = await Socio.findAll({
+      attributes: [
+        "id_club",
+        [sequelize.fn("COUNT", sequelize.col("id_socio")), "total"],
+      ],
+      include: [
+        {
+          model: Club,
+          as: "id_club_CLUB",
+          attributes: ["nombre"], // Traemos el nombre del club
+        },
+      ],
+      group: ["socio.id_club", "id_club_CLUB.nombre"],
+      raw: true,
+    });
+    return result;
+  }
+
   async getAllClubs() {
     // Devuelve todos los clubes.
     const result = await Club.findAll();
