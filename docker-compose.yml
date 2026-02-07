@@ -42,5 +42,6 @@ services:
       - DB_PASSWORD=${MYSQL_PASSWORD}
       - DB_NAME=${MYSQL_DATABASE}
       - DB_PORT=${MYSQL_PORT}
+      - CORS_ORIGIN=${CORS_ORIGIN}
 volumes:
   persistent:

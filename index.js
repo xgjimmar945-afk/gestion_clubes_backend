@@ -25,7 +25,14 @@ app.use(express.json());
 // MIDDLEWARE - CORS - Cualquier origen
 // ============================================
 app.use(cors({
-  origin: 'http://localhost:5173', // El puerto exacto de tu frontend (sin barra al final)
+  origin: (origin, callback) => {
+    const allowedOrigins = process.env.CORS_ORIGIN ? process.env.CORS_ORIGIN.split(',') : [];
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true // Permite cookies y headers de autorización
 }));
 
