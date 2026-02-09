@@ -131,9 +131,14 @@ class ClubController {
     const club = req.body;
     try {
       const result = await clubService.updateClub(clubId, club);
-      if (!result || result.affectedRows === 0) {
+      
+      // --- CORRECCIÓN AQUÍ ---
+      // Sequelize devuelve un array: [numeroFilasAfectadas]
+      // Si el array trae un 0 en la primera posición, es que no encontró el club.
+      if (!result || result[0] === 0) {
         return res.status(404).json(Respuesta.error(null, `Club con id ${clubId} no encontrado`));
       }
+      
       return res.json(Respuesta.exito(result, 'Club actualizado correctamente'));
     } catch (err) {
       return res.status(500).json(Respuesta.error(err, 'Error interno del servidor'));

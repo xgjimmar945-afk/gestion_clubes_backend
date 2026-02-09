@@ -1,0 +1,88 @@
+﻿
+> clubes_ciencia_backend@1.0.0 test
+> jest tests/ramas.test.js
+
+  console.log
+    [dotenv@17.2.4] injecting env (16) from .env -- tip: ­ƒöÉ prevent committing .env to code: https://dotenvx.com/precommit
+
+      at _log (node_modules/dotenv/lib/main.js:142:11)
+
+  console.log
+    DBNAME:
+
+      at log (utils/logger.js:2:11)
+
+  console.log
+    DBHOST:
+
+      at log (utils/logger.js:2:11)
+
+  console.log
+    DBUSER:
+
+      at log (utils/logger.js:2:11)
+
+  console.log
+    DBPORT:
+
+      at log (utils/logger.js:2:11)
+
+  console.log
+    NODE_ENV:
+
+      at log (utils/logger.js:2:11)
+
+  console.error
+    Error de conexi├│n: AccessDeniedError [SequelizeAccessDeniedError]: Access denied for user 'usuario_db'@'172.18.0.1' (using password: YES)
+        at ConnectionManager.connect (C:\Users\Guille\Documents\React-Comienzos\clubes_ciencia_backend\node_modules\sequelize\src\dialects\mysql\connection-manager.js:118:17)
+        at processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at ConnectionManager._connect (C:\Users\Guille\Documents\React-Comienzos\clubes_ciencia_backend\node_modules\sequelize\src\dialects\abstract\connection-manager.js:332:24)
+        at C:\Users\Guille\Documents\React-Comienzos\clubes_ciencia_backend\node_modules\sequelize\src\dialects\abstract\connection-manager.js:250:32 {
+      parent: Error: Access denied for user 'usuario_db'@'172.18.0.1' (using password: YES)
+          at Packet.asError (C:\Users\Guille\Documents\React-Comienzos\clubes_ciencia_backend\node_modules\mysql2\lib\packets\packet.js:740:17)
+          at ClientHandshake.execute (C:\Users\Guille\Documents\React-Comienzos\clubes_ciencia_backend\node_modules\mysql2\lib\commands\command.js:29:26)
+          at Connection.handlePacket (C:\Users\Guille\Documents\React-Comienzos\clubes_ciencia_backend\node_modules\mysql2\lib\base\connection.js:508:34)
+          at PacketParser.onPacket (C:\Users\Guille\Documents\React-Comienzos\clubes_ciencia_backend\node_modules\mysql2\lib\base\connection.js:93:12)
+          at PacketParser.executeStart (C:\Users\Guille\Documents\React-Comienzos\clubes_ciencia_backend\node_modules\mysql2\lib\packet_parser.js:75:16)
+          at Socket.<anonymous> (C:\Users\Guille\Documents\React-Comienzos\clubes_ciencia_backend\node_modules\mysql2\lib\base\connection.js:100:25)
+          at Socket.emit (node:events:508:28)
+          at addChunk (node:internal/streams/readable:559:12)
+          at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+          at Socket.Readable.push (node:internal/streams/readable:390:5)
+          at TCP.onStreamRead (node:internal/stream_base_commons:189:23) {
+        code: 'ER_ACCESS_DENIED_ERROR',
+        errno: 1045,
+        sqlState: '28000',
+        sqlMessage: "Access denied for user 'usuario_db'@'172.18.0.1' (using password: YES)",
+        sql: undefined
+      },
+      original: Error: Access denied for user 'usuario_db'@'172.18.0.1' (using password: YES)
+          at Packet.asError (C:\Users\Guille\Documents\React-Comienzos\clubes_ciencia_backend\node_modules\mysql2\lib\packets\packet.js:740:17)
+          at ClientHandshake.execute (C:\Users\Guille\Documents\React-Comienzos\clubes_ciencia_backend\node_modules\mysql2\lib\commands\command.js:29:26)
+          at Connection.handlePacket (C:\Users\Guille\Documents\React-Comienzos\clubes_ciencia_backend\node_modules\mysql2\lib\base\connection.js:508:34)
+          at PacketParser.onPacket (C:\Users\Guille\Documents\React-Comienzos\clubes_ciencia_backend\node_modules\mysql2\lib\base\connection.js:93:12)
+          at PacketParser.executeStart (C:\Users\Guille\Documents\React-Comienzos\clubes_ciencia_backend\node_modules\mysql2\lib\packet_parser.js:75:16)
+          at Socket.<anonymous> (C:\Users\Guille\Documents\React-Comienzos\clubes_ciencia_backend\node_modules\mysql2\lib\base\connection.js:100:25)
+          at Socket.emit (node:events:508:28)
+          at addChunk (node:internal/streams/readable:559:12)
+          at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+          at Socket.Readable.push (node:internal/streams/readable:390:5)
+          at TCP.onStreamRead (node:internal/stream_base_commons:189:23) {
+        code: 'ER_ACCESS_DENIED_ERROR',
+        errno: 1045,
+        sqlState: '28000',
+        sqlMessage: "Access denied for user 'usuario_db'@'172.18.0.1' (using password: YES)",
+        sql: undefined
+      }
+    }
+
+    [0m [90m 33 |[39m     }
+     [90m 34 |[39m   } [36mcatch[39m (error) {
+    [31m[1m>[22m[39m[90m 35 |[39m     console[33m.[39merror([32m"Error de conexi├│n:"[39m[33m,[39m error)[33m;[39m
+     [90m    |[39m             [31m[1m^[22m[39m
+     [90m 36 |[39m   }
+     [90m 37 |[39m })()[33m;[39m
+     [90m 38 |[39m[0m
+
+      at error (config/sequelize.js:35:13)
+

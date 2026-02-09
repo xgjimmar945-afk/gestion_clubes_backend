@@ -112,6 +112,17 @@ class SocioController {
       const socioNuevo = await socioService.createSocio(socio);
       return res.status(201).json({ ok: true, datos: socioNuevo, mensaje: 'Socio creado correctamente' });
     } catch (err) {
+      // SI EL ERROR ES DE VALIDACIÓN (Faltan nombre, apellido, etc.)
+      if (err.name === 'SequelizeValidationError') {
+        // No hacemos console.error para no ensuciar la terminal
+        return res.status(400).json({
+          ok: false,
+          datos: null,
+          mensaje: 'Error de validación: Faltan datos obligatorios (nombre, apellido...)'
+        });
+      }
+
+      // SI ES OTRO TIPO DE ERROR (Base de datos caída, bug, etc.)
       console.error('Error en createSocio:', err);
       return res.status(500).json({
         ok: false,
@@ -121,11 +132,15 @@ class SocioController {
     }
   }
 
+  // --- CORRECCIÓN EN DELETE ---
   async deleteSocio(req, res) {
     const socioId = req.params.id;
     try {
-      const result = await socioService.deleteSocio(socioId); //antes tenia clubService (puede que por eso al borrar el club se borraran los socios del club)
-      if (!result || result.affectedRows === 0) {
+      const result = await socioService.deleteSocio(socioId);
+      
+      // Sequelize .destroy() devuelve directamente un número entero
+      // No devuelve affectedRows. Si devuelve 0, es que no borró nada.
+      if (!result || result === 0) {
         return res.status(404).json(Respuesta.error(null, `Socio con id ${socioId} no encontrado`));
       }
       return res.status(204).end();
@@ -135,12 +150,16 @@ class SocioController {
     }
   }
 
+  // --- CORRECCIÓN EN UPDATE (Aquí estaba tu error actual) ---
   async updateSocio(req, res) {
     const socioId = req.params.id;
     const socio = req.body;
     try {
       const result = await socioService.updateSocio(socioId, socio);
-      if (!result || result.affectedRows === 0) {
+      
+      // Sequelize .update() devuelve un array: [numeroDeFilasAfectadas]
+      // Debemos mirar la posición 0 del array.
+      if (!result || result[0] === 0) {
         return res.status(404).json(Respuesta.error(null, `Socio con id ${socioId} no encontrado`));
       }
       return res.json(Respuesta.exito(result, 'Socio actualizado correctamente'));
