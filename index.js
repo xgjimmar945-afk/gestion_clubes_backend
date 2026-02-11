@@ -24,17 +24,7 @@ app.use(express.json());
 // ============================================
 // MIDDLEWARE - CORS - Cualquier origen
 // ============================================
-app.use(cors({
-  origin: (origin, callback) => {
-    const allowedOrigins = process.env.CORS_ORIGIN ? process.env.CORS_ORIGIN.split(',') : [];
-    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true // Permite cookies y headers de autorización
-}));
+app.use(cors());
 
 // ============================================
 // MIDDLEWARE - ARCHIVOS ESTÁTICOS
